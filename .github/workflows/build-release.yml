@@ -116,7 +116,7 @@ jobs:
           echo "CACHE_DIR_DL=$CACHE_DIR_DL" >> $GITHUB_ENV
           echo "CACHE_DIR_FEEDS=$CACHE_DIR_FEEDS" >> $GITHUB_ENV
           echo "SDK_HOME=$(mktemp -d)" >> $GITHUB_ENV
-          echo "DATE=$(date +"%Y-%m-%d %H:%M:%S")" >> $GITHUB_ENV
+          echo "DATE=$(date +"%Y-%m-%d")" >> $GITHUB_ENV
       - name: Download and Unzip SDK
         run: |
           cd "$CACHE_DIR_SDK"
