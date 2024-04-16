@@ -58,8 +58,8 @@ jobs:
             sdk_url_path: https://downloads.openwrt.org/snapshots/targets/x86/generic
             sdk_name: -sdk-x86-generic_
           - arch: mipsel_24kc
-            sdk_url_path: https://downloads.openwrt.org/snapshots/targets/ramips/mt7620
-            sdk_name: -sdk-ramips-mt7620_
+            sdk_url_path: https://downloads.openwrt.org/snapshots/targets/ramips/mt7621
+            sdk_name: -sdk-ramips-mt7621_
           - arch: mipsel_74kc
             sdk_url_path: https://downloads.openwrt.org/snapshots/targets/bcm47xx/mips74k
             sdk_name: -sdk-bcm47xx-mips74k_
