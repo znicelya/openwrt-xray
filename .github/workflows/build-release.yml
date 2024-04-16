@@ -116,6 +116,7 @@ jobs:
           echo "CACHE_DIR_DL=$CACHE_DIR_DL" >> $GITHUB_ENV
           echo "CACHE_DIR_FEEDS=$CACHE_DIR_FEEDS" >> $GITHUB_ENV
           echo "SDK_HOME=$(mktemp -d)" >> $GITHUB_ENV
+          echo "DATE=$(date +"%Y-%m-%d %H:%M:%S")" >> $GITHUB_ENV
       - name: Download and Unzip SDK
         run: |
           cd "$CACHE_DIR_SDK"
@@ -169,11 +170,11 @@ jobs:
           find "$SDK_HOME/bin/" -type f -name "*xray*.ipk" -exec cp {} "${{ github.workspace }}" \;
           find "${{ github.workspace }}" -type f -name "*.ipk" -exec ls -lh {} \;
       - name: Create Tag
-        run: git tag $(date +'%Y-%m-%d')-${{ github.run_number }}
+        run: git tag ${{ env.DATE }}-${{ github.run_number }}
       - name: Release and Upload Assets
         uses: softprops/action-gh-release@v1
         with:
-          tag_name: $(date +'%Y-%m-%d')-${{ github.run_number }}
+          tag_name: ${{ env.DATE }}-${{ github.run_number }}
           files: '*.ipk'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
