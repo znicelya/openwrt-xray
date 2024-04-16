@@ -169,11 +169,11 @@ jobs:
           find "$SDK_HOME/bin/" -type f -name "*xray*.ipk" -exec cp {} "${{ github.workspace }}" \;
           find "${{ github.workspace }}" -type f -name "*.ipk" -exec ls -lh {} \;
       - name: Create Tag
-        run: git tag v1.0.0
+        run: git tag $(date +'%Y-%m-%d')-${{ github.run_number }}
       - name: Release and Upload Assets
         uses: softprops/action-gh-release@v1
         with:
-          tag_name: v1.0.0
+          tag_name: $(date +'%Y-%m-%d')-${{ github.run_number }}
           files: '*.ipk'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
